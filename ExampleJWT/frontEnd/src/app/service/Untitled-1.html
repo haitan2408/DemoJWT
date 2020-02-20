@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvashinhchunhat" width="800" height="1000"
+            style="background: whitesmoke;">
+    </canvas>
+    <script>
+
+        let Rectangle=function (width,heght) {
+            this.width=width;
+            this.heght=heght;
+            this.getWidth=function () {
+                return parseInt(this.width);
+            };
+            this.getHeght=function () {
+                return parseInt(this.heght);
+            };
+            this.getPerimeter=function () {
+                return 2*(this.getWidth() + this.getHeght());
+
+            };
+            this.getArea=function () {
+                return this.getWidth() * this.getHeght();
+            };
+            this.getDisplayRectanle=function () {
+                var c=document.getElementById("canvashinhchunhat");
+
+                var ctx=c.getContext("2d");
+                ctx.fillRect(20,20,this.width*10,this.heght*10);
+
+            }
+            this.setWidth=function (width) {
+                this.width=width;
+
+            };
+            this.setHeght=function (heght) {
+                this.heght=heght;
+
+            };
+
+
+            
+        };
+        let rectangle=new Rectangle(4,10);
+        alert("Perimeter: "+rectangle.getPerimeter()+
+        "\nArea: "+rectangle.getArea());
+        rectangle.getDisplayRectanle();
+        rectangle.setWidth(12);
+        rectangle.setHeght(17);
+        alert("Perimeter: "+rectangle.getPerimeter()+
+            "\nArea: "+rectangle.getArea());
+        rectangle.getDisplayRectanle();
+
+
+    </script>
+</body>
+</html>
